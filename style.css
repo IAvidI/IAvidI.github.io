@@ -1,5 +1,3 @@
-/* style.css */
-
 /* Reset some default styles */
 * {
     box-sizing: border-box;
@@ -29,12 +27,37 @@ main {
     padding: 20px;
 }
 
-.page {
-    display: none;
+.container {
+    overflow: hidden;
+    margin: 0 40px 0 40px;
 }
 
-.current {
-    display: block;
+.page {
+    transition: 1s;
+    left: 0%;
+    opacity: 1;
+    position: relative;
+}
+
+/* New */
+.page {
+    flex: 0 0 auto;
+    height: 100%;
+    width: 100%;
+}
+
+.page + .page {
+    margin-left: 20px;
+}
+
+.slide {
+    padding: 10px;
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    transition: all 0.5s linear;
+    transform: translateX(0);
 }
 
 .profile-info {
@@ -124,6 +147,7 @@ footer {
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color: rgba(0, 0, 0, 0.7);
 }
 
@@ -135,8 +159,43 @@ footer {
     background-color: #6e6e6e85;
     margin: 10px 5px;
     cursor: pointer;
+    transition: background-color 0.5s ease-in-out;
 }
 
 .indicator-dot.current {
     background-color: #fff;
+}
+
+.page-swapper {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: rgba(0, 0, 0, 0.7); */
+    padding: 10px;
+}
+
+.page-swapper button {
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 40%;
+    cursor: pointer;
+}
+
+.page-swapper #prev-page {
+    margin-right: auto;
+}
+
+.page-swapper #next-page {
+    margin-left: auto;
 }
