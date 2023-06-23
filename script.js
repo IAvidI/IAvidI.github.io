@@ -30,6 +30,7 @@ document.getElementById("next-page").addEventListener("click", function () {
 
 let slides = document.querySelectorAll(".page");
 let slidesCount = slides.length;
+var container = document.querySelector(".container");
 
 // Function to change the page
 function changePage(pageNumber) {
@@ -55,4 +56,14 @@ function changePage(pageNumber) {
     slide.style.transform = style;
 
     currentPage = pageNumber;
+
+    var activePageHeight = slides[pageNumber].offsetHeight;
+
+    console.log(activePageHeight);
+
+    // slide.addEventListener("transitionend", function () {
+    //     console.log(activePageHeight);
+    //     container.style.height = activePageHeight + 20 + "px";
+    // });
+    // container.style.height = activePageHeight + "px";
 }
